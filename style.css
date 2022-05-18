@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Raleway:ital,wght@1,300&display=swap");
+html,
+body,
+header {
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+
+.view {
+  height: 100%;
+  background: url(images/bg.png) no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.cont {
+  background: url(images/ShinyOverlay.svg);
+  background-size: cover;
+}
+.name {
+  font-family: "Gochi Hand", cursive;
+}
+#quoteOne {
+  font-family: "Gochi Hand", cursive;
+}
