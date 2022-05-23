@@ -36,8 +36,8 @@ var displayIntro = function (call_back) {
     setTimeout(() => {
       intro.style.top = "-100vh";
     }, 3000);
-    call_back();
   });
+  call_back();
 };
 
 // Next button
