@@ -29,9 +29,10 @@ document.onreadystatechange = function () {
         setTimeout(() => {
           intro.style.top = "-100vh";
         }, 2300);
+        // body is visible after intro
+        document.querySelector("body").style.visibility = "visible";
       });
-// body is visible after intro
-    document.querySelector("body").style.visibility = "visible";
+
   }
 };
 
