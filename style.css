@@ -24,7 +24,9 @@ header {
 #quoteOne {
   font-family: "Gochi Hand", cursive;
 }
-
+.loader{
+ z-index: 1;
+}
 .intro {
   position: fixed;
   z-index: 1;
