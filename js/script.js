@@ -4,41 +4,42 @@ let logoSpan = document.querySelectorAll(".logo");
 
 
 // wait to completely load html css resources
-async function myFunction() {
-  setTimeout(() => {
-    logoSpan.forEach((span, idx) => {
-      setTimeout(() => {
-        span.classList.add("active");
-      }, (idx + 1) * 400);
-    });
-
+document.onreadystatechange = function () {
+  if (document.readyState !== "complete") {
+    document.querySelector("body").style.visibility = "hidden";
+    document.querySelector("#loader").style.visibility = "visible";
+  } else {
+    document.querySelector("#loader").style.display = "none";
+    document.querySelector("body").style.visibility = "visible";
+  }
+};
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+    // Intro Hello
     setTimeout(() => {
       logoSpan.forEach((span, idx) => {
         setTimeout(() => {
-          span.classList.remove("active");
-          span.classList.add("fade");
-        }, (idx + 1) * 50);
+          span.classList.add("active");
+        }, (idx + 1) * 400);
       });
-    }, 2000);
 
-    setTimeout(() => {
-      intro.style.top = "-100vh";
-    }, 3000);
-  });
-}
+      setTimeout(() => {
+        logoSpan.forEach((span, idx) => {
+          setTimeout(() => {
+            span.classList.remove("active");
+            span.classList.add("fade");
+          }, (idx + 1) * 50);
+        });
+      }, 2000);
 
-// Intro Hello
-myFunction().then(() => {
-  document.onreadystatechange = function () {
-    if (document.readyState !== "complete") {
-      document.querySelector("body").style.visibility = "hidden";
-      document.querySelector("#loader").style.visibility = "visible";
-    } else {
-      document.querySelector("#loader").style.display = "none";
-      document.querySelector("body").style.visibility = "visible";
-    }
-  };
-});
+      setTimeout(() => {
+        intro.style.top = "-100vh";
+      }, 3000);
+    });
+  },
+  false
+);
 
 
 // Next button
