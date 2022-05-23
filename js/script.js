@@ -1,43 +1,32 @@
-let intro = document.querySelector(".intro");
-let logo = document.querySelector(".logo-header");
-let logoSpan = document.querySelectorAll(".logo");
-
-
-// wait to completely load html css resources
 document.onreadystatechange = function () {
   if (document.readyState !== "complete") {
-    document.querySelector("body").style.visibility = "hidden";
     document.querySelector("#loader").style.visibility = "visible";
   } else {
     document.querySelector("#loader").style.display = "none";
-    displayIntro(function () {
-      document.querySelector("body").style.visibility = "visible";
-    });
-  }
-};
-
-var displayIntro = function (call_back) {
-  setTimeout(() => {
-    logoSpan.forEach((span, idx) => {
-      setTimeout(() => {
-        span.classList.add("active");
-      }, (idx + 1) * 400);
-    });
-
+    let intro = document.querySelector(".intro");
+    let logoSpan = document.querySelectorAll(".logo");
+    // Intro Hello
     setTimeout(() => {
       logoSpan.forEach((span, idx) => {
         setTimeout(() => {
-          span.classList.remove("active");
-          span.classList.add("fade");
-        }, (idx + 1) * 50);
+          span.classList.add("active");
+        }, (idx + 1) * 400);
       });
-    }, 2000);
 
-    setTimeout(() => {
-      intro.style.top = "-100vh";
-    }, 3000);
-  });
-  call_back();
+      setTimeout(() => {
+        logoSpan.forEach((span, idx) => {
+          setTimeout(() => {
+            span.classList.remove("active");
+            span.classList.add("fade");
+          }, (idx + 1) * 50);
+        });
+      }, 2000);
+
+      setTimeout(() => {
+        intro.style.top = "-100vh";
+      }, 2300);
+    }, 1000);
+  }
 };
 
 
