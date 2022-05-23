@@ -11,34 +11,35 @@ document.onreadystatechange = function () {
   } else {
     document.querySelector("#loader").style.display = "none";
     displayIntro(function () {
-      setTimeout(() => {
-        logoSpan.forEach((span, idx) => {
-          setTimeout(() => {
-            span.classList.add("active");
-          }, (idx + 1) * 400);
-        });
-
-        setTimeout(() => {
-          logoSpan.forEach((span, idx) => {
-            setTimeout(() => {
-              span.classList.remove("active");
-              span.classList.add("fade");
-            }, (idx + 1) * 50);
-          });
-        }, 2000);
-
-        setTimeout(() => {
-          intro.style.top = "-100vh";
-        }, 3000);
-      });
+      document.querySelector("body").style.visibility = "visible";
     });
   }
 };
 
 var displayIntro = function (call_back) {
-  document.querySelector("body").style.visibility = "visible";
+  setTimeout(() => {
+    logoSpan.forEach((span, idx) => {
+      setTimeout(() => {
+        span.classList.add("active");
+      }, (idx + 1) * 400);
+    });
+
+    setTimeout(() => {
+      logoSpan.forEach((span, idx) => {
+        setTimeout(() => {
+          span.classList.remove("active");
+          span.classList.add("fade");
+        }, (idx + 1) * 50);
+      });
+    }, 2000);
+
+    setTimeout(() => {
+      intro.style.top = "-100vh";
+    }, 3000);
+  });
   call_back();
 };
+
 
 // Next button
 const btn = document.getElementById("nextBtn");
