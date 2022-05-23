@@ -5,7 +5,7 @@ let logoSpan = document.querySelectorAll(".logo");
 // wait to completely load html css resources
 document.onreadystatechange = function () {
   if (document.readyState !== "complete") {
-    document.querySelector("body").style.visibility = "hidden";
+   
     document.querySelector("#loader").style.visibility = "visible";
   } else {
     document.querySelector("#loader").style.display = "none";
@@ -30,8 +30,7 @@ document.onreadystatechange = function () {
           intro.style.top = "-100vh";
         }, 2300);
       });
-    // body is visible after intro
-    document.querySelector("body").style.visibility = "visible";
+
   }
 };
 
