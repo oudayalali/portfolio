@@ -2,39 +2,42 @@ let intro = document.querySelector(".intro");
 let logo = document.querySelector(".logo-header");
 let logoSpan = document.querySelectorAll(".logo");
 
+// wait to completely load html css resources
 document.onreadystatechange = function () {
   if (document.readyState !== "complete") {
     document.querySelector("body").style.visibility = "hidden";
     document.querySelector("#loader").style.visibility = "visible";
   } else {
     document.querySelector("#loader").style.display = "none";
+    // Intro Hello
+    window.addEventListener("load", (event) => {
+      setTimeout(() => {
+        logoSpan.forEach((span, idx) => {
+          setTimeout(() => {
+            span.classList.add("active");
+          }, (idx + 1) * 400);
+        });
+
+        setTimeout(() => {
+          logoSpan.forEach((span, idx) => {
+            setTimeout(() => {
+              span.classList.remove("active");
+              span.classList.add("fade");
+            }, (idx + 1) * 50);
+          });
+        }, 3000);
+
+        setTimeout(() => {
+          intro.style.top = "-100vh";
+        }, 3300);
+      });
+    });
+    // body is visible after intro
     document.querySelector("body").style.visibility = "visible";
   }
 };
 
-window.addEventListener("load", (event) => {
-  setTimeout(() => {
-    logoSpan.forEach((span, idx) => {
-      setTimeout(() => {
-        span.classList.add("active");
-      }, (idx + 1) * 400);
-    });
-
-    setTimeout(() => {
-      logoSpan.forEach((span, idx) => {
-        setTimeout(() => {
-          span.classList.remove("active");
-          span.classList.add("fade");
-        }, (idx + 1) * 50);
-      });
-    }, 3000);
-
-    setTimeout(() => {
-      intro.style.top = "-100vh";
-    }, 3300);
-  });
-});
-
+// Next button
 const btn = document.getElementById("nextBtn");
 const aboutMe = document.getElementById("aboutMe");
 const quoteOne = document.getElementById("quoteOne");
