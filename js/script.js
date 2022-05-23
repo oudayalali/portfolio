@@ -10,7 +10,6 @@ document.onreadystatechange = function () {
   } else {
     document.querySelector("#loader").style.display = "none";
     // Intro Hello
-    window.addEventListener("load", (event) => {
       setTimeout(() => {
         logoSpan.forEach((span, idx) => {
           setTimeout(() => {
@@ -31,7 +30,6 @@ document.onreadystatechange = function () {
           intro.style.top = "-100vh";
         }, 3300);
       });
-    });
     // body is visible after intro
     document.querySelector("body").style.visibility = "visible";
   }
