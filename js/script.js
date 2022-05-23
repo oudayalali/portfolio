@@ -9,34 +9,31 @@ document.onreadystatechange = function () {
     document.querySelector("#loader").style.visibility = "visible";
   } else {
     document.querySelector("#loader").style.display = "none";
-
-    myFunction().then(function (value) {
-      document.querySelector("body").style.visibility = "visible";
-    });
+    document.querySelector("body").style.visibility = "visible";
   }
 };
 // Intro Hello
-async function myFunction() {
-  return setTimeout(() => {
+setTimeout(() => {
+  logoSpan.forEach((span, idx) => {
+    setTimeout(() => {
+      span.classList.add("active");
+    }, (idx + 1) * 400);
+  });
+
+  setTimeout(() => {
     logoSpan.forEach((span, idx) => {
       setTimeout(() => {
-        span.classList.add("active");
-      }, (idx + 1) * 400);
+        span.classList.remove("active");
+        span.classList.add("fade");
+      }, (idx + 1) * 50);
     });
+  }, 2000);
 
-    setTimeout(() => {
-      logoSpan.forEach((span, idx) => {
-        setTimeout(() => {
-          span.classList.remove("active");
-          span.classList.add("fade");
-        }, (idx + 1) * 50);
-      });
-    }, 2000);
-    setTimeout(() => {
-      intro.style.top = "-100vh";
-    }, 3000);
-  });
-}
+  setTimeout(() => {
+    intro.style.top = "-100vh";
+  }, 3000);
+});
+
 
 // Next button
 const btn = document.getElementById("nextBtn");
