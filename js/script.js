@@ -24,11 +24,11 @@ document.onreadystatechange = function () {
               span.classList.add("fade");
             }, (idx + 1) * 50);
           });
-        }, 3000);
+        }, 2000);
 
         setTimeout(() => {
           intro.style.top = "-100vh";
-        }, 3300);
+        }, 2300);
       });
     // body is visible after intro
     document.querySelector("body").style.visibility = "visible";
