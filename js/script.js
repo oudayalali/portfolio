@@ -5,36 +5,38 @@ let logoSpan = document.querySelectorAll(".logo");
 // wait to completely load html css resources
 document.onreadystatechange = function () {
   if (document.readyState !== "complete") {
-   document.querySelector("body").style.visibility = "hidden";
+    document.querySelector("body").style.visibility = "hidden";
     document.querySelector("#loader").style.visibility = "visible";
   } else {
     document.querySelector("#loader").style.display = "none";
-    // Intro Hello
-      setTimeout(() => {
-        logoSpan.forEach((span, idx) => {
-          setTimeout(() => {
-            span.classList.add("active");
-          }, (idx + 1) * 400);
-        });
 
-        setTimeout(() => {
-          logoSpan.forEach((span, idx) => {
-            setTimeout(() => {
-              span.classList.remove("active");
-              span.classList.add("fade");
-            }, (idx + 1) * 50);
-          });
-        }, 2000);
-        // body is visible after intro
-        document.querySelector("body").style.visibility = "visible";  
-        setTimeout(() => {
-          intro.style.top = "-100vh";
-        }, 2300);
-        
-      });
-
+    myFunction().then(function (value) {
+      document.querySelector("body").style.visibility = "visible";
+    });
   }
 };
+// Intro Hello
+async function myFunction() {
+  return setTimeout(() => {
+    logoSpan.forEach((span, idx) => {
+      setTimeout(() => {
+        span.classList.add("active");
+      }, (idx + 1) * 400);
+    });
+
+    setTimeout(() => {
+      logoSpan.forEach((span, idx) => {
+        setTimeout(() => {
+          span.classList.remove("active");
+          span.classList.add("fade");
+        }, (idx + 1) * 50);
+      });
+    }, 2000);
+    setTimeout(() => {
+      intro.style.top = "-100vh";
+    }, 3000);
+  });
+}
 
 // Next button
 const btn = document.getElementById("nextBtn");
