@@ -14,11 +14,10 @@ document.onreadystatechange = function () {
     setTimeout(() => {
       logoSpan.forEach((span, idx) => {
         setTimeout(() => {
-          document.querySelector("body").style.visibility = "visible";
           span.classList.add("active");
         }, (idx + 1) * 400);
       });
-
+      document.querySelector("body").style.visibility = "visible";
       setTimeout(() => {
         logoSpan.forEach((span, idx) => {
           setTimeout(() => {
