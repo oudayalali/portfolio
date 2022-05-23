@@ -10,16 +10,11 @@ document.onreadystatechange = function () {
     document.querySelector("#loader").style.visibility = "visible";
   } else {
     document.querySelector("#loader").style.display = "none";
-    document.querySelector("body").style.visibility = "visible";
-  }
-};
-document.addEventListener(
-  "DOMContentLoaded",
-  function () {
     // Intro Hello
     setTimeout(() => {
       logoSpan.forEach((span, idx) => {
         setTimeout(() => {
+          document.querySelector("body").style.visibility = "visible";
           span.classList.add("active");
         }, (idx + 1) * 400);
       });
@@ -37,9 +32,8 @@ document.addEventListener(
         intro.style.top = "-100vh";
       }, 3000);
     });
-  },
-  false
-);
+  }
+};
 
 
 // Next button
