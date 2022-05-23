@@ -9,6 +9,7 @@ document.onreadystatechange = function () {
     document.querySelector("body").style.visibility = "hidden";
     document.querySelector("#loader").style.visibility = "visible";
   } else {
+    document.querySelector("body").style.visibility = "visible";
     document.querySelector("#loader").style.display = "none";
     // Intro Hello
     setTimeout(() => {
@@ -17,7 +18,6 @@ document.onreadystatechange = function () {
           span.classList.add("active");
         }, (idx + 1) * 400);
       });
-      document.querySelector("body").style.visibility = "visible";
       setTimeout(() => {
         logoSpan.forEach((span, idx) => {
           setTimeout(() => {
