@@ -2,37 +2,43 @@ let intro = document.querySelector(".intro");
 let logo = document.querySelector(".logo-header");
 let logoSpan = document.querySelectorAll(".logo");
 
-// wait to completely load html css resources
-document.onreadystatechange = function () {
-  if (document.readyState !== "complete") {
-    document.querySelector("body").style.visibility = "hidden";
-    document.querySelector("#loader").style.visibility = "visible";
-  } else {
-    document.querySelector("#loader").style.display = "none";
-    document.querySelector("body").style.visibility = "visible";
-  }
-};
-// Intro Hello
-setTimeout(() => {
-  logoSpan.forEach((span, idx) => {
-    setTimeout(() => {
-      span.classList.add("active");
-    }, (idx + 1) * 400);
-  });
 
+// wait to completely load html css resources
+async function myFunction() {
+  document.onreadystatechange = function () {
+    if (document.readyState !== "complete") {
+      document.querySelector("body").style.visibility = "hidden";
+      document.querySelector("#loader").style.visibility = "visible";
+    } else {
+      document.querySelector("#loader").style.display = "none";
+      document.querySelector("body").style.visibility = "visible";
+    }
+  };
+}
+
+// Intro Hello
+myFunction().then(
   setTimeout(() => {
     logoSpan.forEach((span, idx) => {
       setTimeout(() => {
-        span.classList.remove("active");
-        span.classList.add("fade");
-      }, (idx + 1) * 50);
+        span.classList.add("active");
+      }, (idx + 1) * 400);
     });
-  }, 2000);
 
-  setTimeout(() => {
-    intro.style.top = "-100vh";
-  }, 3000);
-});
+    setTimeout(() => {
+      logoSpan.forEach((span, idx) => {
+        setTimeout(() => {
+          span.classList.remove("active");
+          span.classList.add("fade");
+        }, (idx + 1) * 50);
+      });
+    }, 2000);
+
+    setTimeout(() => {
+      intro.style.top = "-100vh";
+    }, 3000);
+  })
+);
 
 
 // Next button
