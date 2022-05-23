@@ -25,12 +25,12 @@ document.onreadystatechange = function () {
             }, (idx + 1) * 50);
           });
         }, 2000);
-
+        // body is visible after intro
+        document.querySelector("body").style.visibility = "visible";  
         setTimeout(() => {
           intro.style.top = "-100vh";
         }, 2300);
-        // body is visible after intro
-        document.querySelector("body").style.visibility = "visible";
+        
       });
 
   }
