@@ -8,6 +8,11 @@ header {
   scroll-behavior: smooth;
 }
 
+body {
+  z-index: -1;
+}
+
+
 .view {
   height: 100vh;
   background: url(images/bg.webp) no-repeat center;
