@@ -1,3 +1,4 @@
+// wait to completely load html css resources
 document.onreadystatechange = function () {
   if (document.readyState !== "complete") {
     document.querySelector("#loader").style.visibility = "visible";
