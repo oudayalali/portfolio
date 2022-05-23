@@ -25,7 +25,7 @@ document.onreadystatechange = function () {
       setTimeout(() => {
         intro.style.top = "-100vh";
       }, 2300);
-    }, 1000);
+    });
   }
 };
 
