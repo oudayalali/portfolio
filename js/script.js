@@ -4,11 +4,11 @@ let logoSpan = document.querySelectorAll(".logo");
 
 document.onreadystatechange = function () {
   if (document.readyState !== "complete") {
-    document.querySelector(".intro").style.visibility = "hidden";
+    document.querySelector("body").style.visibility = "hidden";
     document.querySelector("#loader").style.visibility = "visible";
   } else {
     document.querySelector("#loader").style.display = "none";
-    document.querySelector(".intro").style.visibility = "visible";
+    document.querySelector("body").style.visibility = "visible";
   }
 };
 
