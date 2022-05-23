@@ -76,6 +76,7 @@ header {
   align-items: stretch;
   justify-content: center;
   align-content: center;
+  z-index: 1;
 }
 
 .flex_ {
