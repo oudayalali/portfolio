@@ -5,19 +5,6 @@ let logoSpan = document.querySelectorAll(".logo");
 
 // wait to completely load html css resources
 async function myFunction() {
-  document.onreadystatechange = function () {
-    if (document.readyState !== "complete") {
-      document.querySelector("body").style.visibility = "hidden";
-      document.querySelector("#loader").style.visibility = "visible";
-    } else {
-      document.querySelector("#loader").style.display = "none";
-      document.querySelector("body").style.visibility = "visible";
-    }
-  };
-}
-
-// Intro Hello
-myFunction().then(
   setTimeout(() => {
     logoSpan.forEach((span, idx) => {
       setTimeout(() => {
@@ -37,8 +24,21 @@ myFunction().then(
     setTimeout(() => {
       intro.style.top = "-100vh";
     }, 3000);
-  })
-);
+  });
+}
+
+// Intro Hello
+myFunction().then(() => {
+  document.onreadystatechange = function () {
+    if (document.readyState !== "complete") {
+      document.querySelector("body").style.visibility = "hidden";
+      document.querySelector("#loader").style.visibility = "visible";
+    } else {
+      document.querySelector("#loader").style.display = "none";
+      document.querySelector("body").style.visibility = "visible";
+    }
+  };
+});
 
 
 // Next button
