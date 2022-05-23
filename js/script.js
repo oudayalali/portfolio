@@ -9,31 +9,35 @@ document.onreadystatechange = function () {
     document.querySelector("body").style.visibility = "hidden";
     document.querySelector("#loader").style.visibility = "visible";
   } else {
-    document.querySelector("body").style.visibility = "visible";
     document.querySelector("#loader").style.display = "none";
     // Intro Hello
+
+    Myfucntion();
+    document.querySelector("body").style.visibility = "visible";
+  }
+};
+function Myfucntion() {
+  return setTimeout(() => {
+    logoSpan.forEach((span, idx) => {
+      setTimeout(() => {
+        span.classList.add("active");
+      }, (idx + 1) * 400);
+    });
+
     setTimeout(() => {
       logoSpan.forEach((span, idx) => {
         setTimeout(() => {
-          span.classList.add("active");
-        }, (idx + 1) * 400);
+          span.classList.remove("active");
+          span.classList.add("fade");
+        }, (idx + 1) * 50);
       });
-      setTimeout(() => {
-        logoSpan.forEach((span, idx) => {
-          setTimeout(() => {
-            span.classList.remove("active");
-            span.classList.add("fade");
-          }, (idx + 1) * 50);
-        });
-      }, 2000);
+    }, 2000);
 
-      setTimeout(() => {
-        intro.style.top = "-100vh";
-      }, 3000);
-    });
-  }
-};
-
+    setTimeout(() => {
+      intro.style.top = "-100vh";
+    }, 3000);
+  });
+}
 
 // Next button
 const btn = document.getElementById("nextBtn");
