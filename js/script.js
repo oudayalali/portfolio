@@ -10,14 +10,14 @@ document.onreadystatechange = function () {
     document.querySelector("#loader").style.visibility = "visible";
   } else {
     document.querySelector("#loader").style.display = "none";
-    // Intro Hello
-
-    Myfucntion();
-    document.querySelector("body").style.visibility = "visible";
+    displayIntro(function () {
+      document.querySelector("body").style.visibility = "visible";
+    });
   }
 };
-function Myfucntion() {
-  return setTimeout(() => {
+
+var displayIntro = function (call_back) {
+  setTimeout(() => {
     logoSpan.forEach((span, idx) => {
       setTimeout(() => {
         span.classList.add("active");
@@ -36,8 +36,9 @@ function Myfucntion() {
     setTimeout(() => {
       intro.style.top = "-100vh";
     }, 3000);
+    call_back();
   });
-}
+};
 
 // Next button
 const btn = document.getElementById("nextBtn");
